@@ -3,10 +3,8 @@
 Max resolution: 32760x4095  
 Colors: 2 of your choice  
   
-# Instructions
-
-**Linux:**
-
+# Instructionsv  
+  
 To convert a picture into the TW format:  
 `python image.py -bg [RGB] -fg [RGB] -img [input] > image.txt; xxd -r -p image.txt [output]; rm image.txt`  
   
