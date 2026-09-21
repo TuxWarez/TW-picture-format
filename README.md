@@ -7,13 +7,12 @@ Horizontal resolution **must** be divisible by 8
 # Instructions  
   
 To convert a picture into the TW format:  
-`python image.py -bg [RGB] -fg [RGB] -img [input]`  
+`python generate.py -bg [RGB] -fg [RGB] -img [input]`  
   
-`python image.py -bg [bgRGB] -fg [fgRGB] -img [input] > image.txt` converts a picture into a text file with hexadecimal digits of the image  
 [bgRGB] is background color written in decimals in this format: R,G,B  
 [fgRGB] is foreground color written in decimals in this format: R,G,B  
 [input] is the filename of the input image  
 
 To display images of TW format:  
-`python imgdisplay.py -img [input]`  
+`python display.py -img [input]`  
 [input] is the filename of TW picture file  
