@@ -2,6 +2,7 @@
 
 Max resolution: 32760x4095  
 Colors: 2 of your choice  
+Note: Horizontal resolution **must** be divisible by 8
   
 # Instructions  
   
