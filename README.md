@@ -7,7 +7,7 @@ Horizontal resolution **must** be divisible by 8
 # Instructions  
   
 To convert a picture into the TW format:  
-`python generate.py -bg [RGB] -fg [RGB] -img [input]`  
+`python generate.py -bg [bgRGB] -fg [fgRGB] -img [input]`  
   
 [bgRGB] is background color written in decimals in this format: R,G,B  
 [fgRGB] is foreground color written in decimals in this format: R,G,B  
