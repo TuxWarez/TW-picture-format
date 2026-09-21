@@ -46,10 +46,7 @@ for i in range(height):
                     value = 0
                 else:
                     value = 1
-            pixel_bar.append(value)
-        pixel_bar.reverse()
-        for p in range(8):
-            power += pixel_bar[p] * pow(2, p)
+            power += value * pow(2, (7-k))
         file.write(f"{power:02x}")
 file.close()
 
@@ -61,3 +58,4 @@ os.remove("image.txt")
 with open("output.bin", "rb") as f_in:
     with gzip.open("output.tw", "wb") as f_out:
         shutil.copyfileobj(f_in, f_out)
+os.remove("output.bin")
