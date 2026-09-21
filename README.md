@@ -21,5 +21,5 @@ To convert a picture into the TW format:
 `rm image.txt` removes the text file with hex digits  
   
 To display images of TW format:  
-`python imgdisplay.py -img [input]`
+`python imgdisplay.py -img [input]`  
 [input] is the filename of TW picture file  
