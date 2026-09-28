@@ -7,7 +7,7 @@ parser.add_argument("-fg", "--foreground", default=0, type=str, help="Foreground
 parser.add_argument("-img", "--image", default="", type=str, help="Image file to convert")
 args = parser.parse_args()
 
-im = Image.open(args.image)
+im = Image.open(args.image).convert("RGB")
 file = open("image.txt", "w")
 res1, res2, res3 = 0, 0, 0
 pixels = im.load()
@@ -30,7 +30,7 @@ for i in range(8):
 for i in range(8):
     res3 += size_array[i + 16] * pow(2, i)
 
-file.write( f"{res1:02x}{res2:02x}{res3:02x}")
+file.write(f"{res1:02x}{res2:02x}{res3:02x}")
 for i in background:
     file.write(f"{i:02x}")
 for i in foreground:
@@ -41,12 +41,8 @@ for i in range(height):
         power = 0
         for k in range(8):
             value = pixels[(j*8) + k, i]
-            if not isinstance(value, int):
-                if abs(foreground[0] - value[0]) < abs(background[0] - value[0]) and abs(foreground[1] - value[1]) < abs(background[1] - value[1]) and abs(foreground[2] - value[2]) < abs(background[2] - value[2]):
-                    value = 0
-                else:
-                    value = 1
-            power += value * pow(2, (7-k))
+            if abs(foreground[0] - value[0]) > abs(background[0] - value[0]) or abs(foreground[1] - value[1]) > abs(background[1] - value[1]) or abs(foreground[2] - value[2]) > abs(background[2] - value[2]):
+                power |= 1 << (7-k)
         file.write(f"{power:02x}")
 file.close()
 
